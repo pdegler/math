@@ -214,7 +214,11 @@ namespace boost {
             {
                return policies::raise_domain_error<T>("boost::math::expm1<%1%>(%1%)", "expm1 requires a finite argument, but got %1%", a, pol);
             }
+#ifdef BOOST_MATH_NO_LONG_DOUBLE_MATH_FUNCTIONS
+            if (a > T(0.5))
+#else
             if (a > T(0.5L))
+#endif
             {
                if (a >= tools::log_max_value<T>())
                {

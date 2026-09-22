@@ -42,7 +42,7 @@ struct numeric_traits<__float128>
    static const int max_exponent = 16384;
    static const bool is_specialized = true;
 };
-#elif LDBL_DIG > DBL_DIG
+#elif LDBL_DIG > DBL_DIG && !defined(BOOST_MATH_NO_LONG_DOUBLE_MATH_FUNCTIONS)
 typedef long double largest_float;
 #define BOOST_MATH_LARGEST_FLOAT_C(x) x##L
 #else

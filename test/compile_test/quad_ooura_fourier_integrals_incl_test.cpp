@@ -14,12 +14,20 @@
 //
 #include "test_compile_result.hpp"
 
+template <typename Real>
+void test() {
+    auto f = [](Real x) { return x; };
+    boost::math::quadrature::ooura_fourier_sin<Real> sin_integrator;
+    boost::math::quadrature::ooura_fourier_cos<Real> cos_integrator;
+    check_result<std::pair<Real, Real>>(sin_integrator.integrate(f, 1.0));
+    check_result<std::pair<Real, Real>>(cos_integrator.integrate(f, 1.0));
+}
+
 void compile_and_link_test()
 {
-    auto f = [](double x) { return x; };
-    boost::math::quadrature::ooura_fourier_sin<double> sin_integrator;
-    boost::math::quadrature::ooura_fourier_cos<double> cos_integrator;
-    check_result<std::pair<double, double>>(sin_integrator.integrate(f, 1.0));
-    check_result<std::pair<double, double>>(cos_integrator.integrate(f, 1.0));
+    test<float>();
+    #ifndef BOOST_MATH_NO_LONG_DOUBLE_MATH_FUNCTIONS
+    test<double>();
+    #endif
 }
 #endif

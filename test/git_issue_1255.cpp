@@ -57,7 +57,9 @@ namespace local
 auto main() -> int
 {
   local::test<double>();
+  #ifndef BOOST_MATH_NO_LONG_DOUBLE_MATH_FUNCTIONS
   local::test<long double>();
+  #endif
 
   return boost::report_errors();
 }

@@ -20,6 +20,7 @@ int main()
 
 #if defined(__cpp_lib_type_trait_variable_templates) && (__cpp_lib_type_trait_variable_templates >= 201510L) && defined(__cpp_static_assert) && (__cpp_static_assert >= 201411L)
 
+#ifndef BOOST_MATH_NO_LONG_DOUBLE_MATH_FUNCTIONS
    static_assert(std::is_same_v<promote_args_t<long double, float>, long double>);
    static_assert(std::is_same_v<promote_args_t<long double, double>, long double>);
    static_assert(std::is_same_v<promote_args_t<long double, long double>, long double>);
@@ -43,10 +44,13 @@ int main()
    static_assert(std::is_same_v<promote_args_t<long double, std::float128_t>, std::float128_t>);
 #endif
 #endif
+#endif // BOOST_MATH_NO_LONG_DOUBLE_MATH_FUNCTIONS
    
    static_assert(std::is_same_v<promote_args_t<double, float>, double>);
    static_assert(std::is_same_v<promote_args_t<double, double>, double>);
+#ifndef BOOST_MATH_NO_LONG_DOUBLE_MATH_FUNCTIONS
    static_assert(std::is_same_v<promote_args_t<double, long double>, long double>);
+#endif
 #ifdef __STDCPP_FLOAT16_T__
    static_assert(std::is_same_v<promote_args_t<double, std::float16_t>, double>);
 #endif
@@ -70,7 +74,9 @@ int main()
    
    static_assert(std::is_same_v<promote_args_t<float, float>, float>);
    static_assert(std::is_same_v<promote_args_t<float, double>, double>);
+#ifndef BOOST_MATH_NO_LONG_DOUBLE_MATH_FUNCTIONS
    static_assert(std::is_same_v<promote_args_t<float, long double>, long double>);
+#endif
 #ifdef __STDCPP_FLOAT16_T__
    static_assert(std::is_same_v<promote_args_t<float, std::float16_t>, float>);
 #endif
@@ -87,7 +93,9 @@ int main()
 #ifdef __STDCPP_FLOAT16_T__
    static_assert(std::is_same_v<promote_args_t<std::float16_t, float>, float>);
    static_assert(std::is_same_v<promote_args_t<std::float16_t, double>, double>);
+#ifndef BOOST_MATH_NO_LONG_DOUBLE_MATH_FUNCTIONS
    static_assert(std::is_same_v<promote_args_t<std::float16_t, long double>, long double>);
+#endif
 #ifdef __STDCPP_FLOAT16_T__
    static_assert(std::is_same_v<promote_args_t<std::float16_t, std::float16_t>, float>);
 #endif
@@ -105,7 +113,9 @@ int main()
 #ifdef __STDCPP_FLOAT32_T__
    static_assert(std::is_same_v<promote_args_t<std::float32_t, float>, std::float32_t>);
    static_assert(std::is_same_v<promote_args_t<std::float32_t, double>, double>);
+#ifndef BOOST_MATH_NO_LONG_DOUBLE_MATH_FUNCTIONS
    static_assert(std::is_same_v<promote_args_t<std::float32_t, long double>, long double>);
+#endif
 #ifdef __STDCPP_FLOAT16_T__
    static_assert(std::is_same_v<promote_args_t<std::float32_t, std::float16_t>, std::float32_t>);
 #endif
@@ -123,10 +133,12 @@ int main()
 #ifdef __STDCPP_FLOAT64_T__
    static_assert(std::is_same_v<promote_args_t<std::float64_t, float>, std::float64_t>);
    static_assert(std::is_same_v<promote_args_t<std::float64_t, double>, std::float64_t>);
+#ifndef BOOST_MATH_NO_LONG_DOUBLE_MATH_FUNCTIONS
 #if LDBL_MANT_DIG > 53
    static_assert(std::is_same_v<promote_args_t<std::float64_t, long double>, long double>);
 #else
    static_assert(std::is_same_v<promote_args_t<std::float64_t, long double>, std::float64_t>);
+#endif
 #endif
 #ifdef __STDCPP_FLOAT16_T__
    static_assert(std::is_same_v<promote_args_t<std::float64_t, std::float16_t>, std::float64_t>);
@@ -145,10 +157,12 @@ int main()
 #ifdef __STDCPP_FLOAT128_T__
    static_assert(std::is_same_v<promote_args_t<std::float128_t, float>, std::float128_t>);
    static_assert(std::is_same_v<promote_args_t<std::float128_t, double>, std::float128_t>);
+#ifndef BOOST_MATH_NO_LONG_DOUBLE_MATH_FUNCTIONS
 #if LDBL_MANT_DIG > 113
    static_assert(std::is_same_v<promote_args_t<std::float128_t, long double>, long double>);
 #else
    static_assert(std::is_same_v<promote_args_t<std::float128_t, long double>, std::float128_t>);
+#endif
 #endif
 #ifdef __STDCPP_FLOAT16_T__
    static_assert(std::is_same_v<promote_args_t<std::float128_t, std::float16_t>, std::float128_t>);
@@ -167,7 +181,9 @@ int main()
 #ifndef BOOST_MATH_STANDALONE
    static_assert(std::is_same_v<promote_args_t<float, boost::multiprecision::cpp_bin_float_50>, boost::multiprecision::cpp_bin_float_50>);
    static_assert(std::is_same_v<promote_args_t<double, boost::multiprecision::cpp_bin_float_50>, boost::multiprecision::cpp_bin_float_50>);
+#ifndef BOOST_MATH_NO_LONG_DOUBLE_MATH_FUNCTIONS
    static_assert(std::is_same_v<promote_args_t<long double, boost::multiprecision::cpp_bin_float_50>, boost::multiprecision::cpp_bin_float_50>);
+#endif
 #ifdef __STDCPP_FLOAT16_T__
    static_assert(std::is_same_v<promote_args_t<std::float16_t, boost::multiprecision::cpp_bin_float_50>, boost::multiprecision::cpp_bin_float_50>);
 #endif

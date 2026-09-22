@@ -119,7 +119,9 @@ int main()
     test_linear<double>();
     #endif
 
+    #ifndef BOOST_MATH_NO_LONG_DOUBLE_MATH_FUNCTIONS
     test_four_values<long double>();
+    #endif
     
     return boost::math::test::report_errors();
 }

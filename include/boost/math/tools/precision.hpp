@@ -14,6 +14,7 @@
 #include <boost/math/tools/assert.hpp>
 #include <boost/math/tools/type_traits.hpp>
 #include <boost/math/tools/numeric_limits.hpp>
+#include <boost/math/tools/big_constant.hpp>
 #include <boost/math/policies/policy.hpp>
 
 #ifndef BOOST_MATH_HAS_NVRTC
@@ -271,25 +272,25 @@ namespace detail{
 template <class T>
 BOOST_MATH_GPU_ENABLED inline constexpr T root_epsilon_imp(const boost::math::integral_constant<int, 24>&) noexcept(boost::math::is_floating_point<T>::value)
 {
-   return static_cast<T>(0.00034526698300124390839884978618400831996329879769945L);
+   return static_cast<T>(BOOST_MATH_LARGEST_FLOAT_C(0.00034526698300124390839884978618400831996329879769945));
 }
 
 template <class T>
 BOOST_MATH_GPU_ENABLED inline constexpr T root_epsilon_imp(const T*, const boost::math::integral_constant<int, 53>&) noexcept(boost::math::is_floating_point<T>::value)
 {
-   return static_cast<T>(0.1490116119384765625e-7L);
+   return static_cast<T>(BOOST_MATH_LARGEST_FLOAT_C(0.1490116119384765625e-7));
 }
 
 template <class T>
 BOOST_MATH_GPU_ENABLED inline constexpr T root_epsilon_imp(const T*, const boost::math::integral_constant<int, 64>&) noexcept(boost::math::is_floating_point<T>::value)
 {
-   return static_cast<T>(0.32927225399135962333569506281281311031656150598474e-9L);
+   return static_cast<T>(BOOST_MATH_LARGEST_FLOAT_C(0.32927225399135962333569506281281311031656150598474e-9));
 }
 
 template <class T>
 BOOST_MATH_GPU_ENABLED inline constexpr T root_epsilon_imp(const T*, const boost::math::integral_constant<int, 113>&) noexcept(boost::math::is_floating_point<T>::value)
 {
-   return static_cast<T>(0.1387778780781445675529539585113525390625e-16L);
+   return static_cast<T>(BOOST_MATH_LARGEST_FLOAT_C(0.1387778780781445675529539585113525390625e-16));
 }
 
 template <class T, class Tag>
@@ -310,25 +311,25 @@ BOOST_MATH_GPU_ENABLED inline T root_epsilon_imp(const T*, const boost::math::in
 template <class T>
 BOOST_MATH_GPU_ENABLED inline constexpr T cbrt_epsilon_imp(const boost::math::integral_constant<int, 24>&) noexcept(boost::math::is_floating_point<T>::value)
 {
-   return static_cast<T>(0.0049215666011518482998719164346805794944150447839903L);
+   return static_cast<T>(BOOST_MATH_LARGEST_FLOAT_C(0.0049215666011518482998719164346805794944150447839903));
 }
 
 template <class T>
 BOOST_MATH_GPU_ENABLED inline constexpr T cbrt_epsilon_imp(const T*, const boost::math::integral_constant<int, 53>&) noexcept(boost::math::is_floating_point<T>::value)
 {
-   return static_cast<T>(6.05545445239333906078989272793696693569753008995e-6L);
+   return static_cast<T>(BOOST_MATH_LARGEST_FLOAT_C(6.05545445239333906078989272793696693569753008995e-6));
 }
 
 template <class T>
 BOOST_MATH_GPU_ENABLED inline constexpr T cbrt_epsilon_imp(const T*, const boost::math::integral_constant<int, 64>&) noexcept(boost::math::is_floating_point<T>::value)
 {
-   return static_cast<T>(4.76837158203125e-7L);
+   return static_cast<T>(BOOST_MATH_LARGEST_FLOAT_C(4.76837158203125e-7));
 }
 
 template <class T>
 BOOST_MATH_GPU_ENABLED inline constexpr T cbrt_epsilon_imp(const T*, const boost::math::integral_constant<int, 113>&) noexcept(boost::math::is_floating_point<T>::value)
 {
-   return static_cast<T>(5.7749313854154005630396773604745549542403508090496e-12L);
+   return static_cast<T>(BOOST_MATH_LARGEST_FLOAT_C(5.7749313854154005630396773604745549542403508090496e-12));
 }
 
 template <class T, class Tag>
@@ -349,25 +350,25 @@ BOOST_MATH_GPU_ENABLED inline T cbrt_epsilon_imp(const T*, const boost::math::in
 template <class T>
 BOOST_MATH_GPU_ENABLED inline constexpr T forth_root_epsilon_imp(const T*, const boost::math::integral_constant<int, 24>&) noexcept(boost::math::is_floating_point<T>::value)
 {
-   return static_cast<T>(0.018581361171917516667460937040007436176452688944747L);
+   return static_cast<T>(BOOST_MATH_LARGEST_FLOAT_C(0.018581361171917516667460937040007436176452688944747));
 }
 
 template <class T>
 BOOST_MATH_GPU_ENABLED inline constexpr T forth_root_epsilon_imp(const T*, const boost::math::integral_constant<int, 53>&) noexcept(boost::math::is_floating_point<T>::value)
 {
-   return static_cast<T>(0.0001220703125L);
+   return static_cast<T>(BOOST_MATH_LARGEST_FLOAT_C(0.0001220703125));
 }
 
 template <class T>
 BOOST_MATH_GPU_ENABLED inline constexpr T forth_root_epsilon_imp(const T*, const boost::math::integral_constant<int, 64>&) noexcept(boost::math::is_floating_point<T>::value)
 {
-   return static_cast<T>(0.18145860519450699870567321328132261891067079047605e-4L);
+   return static_cast<T>(BOOST_MATH_LARGEST_FLOAT_C(0.18145860519450699870567321328132261891067079047605e-4));
 }
 
 template <class T>
 BOOST_MATH_GPU_ENABLED inline constexpr T forth_root_epsilon_imp(const T*, const boost::math::integral_constant<int, 113>&) noexcept(boost::math::is_floating_point<T>::value)
 {
-   return static_cast<T>(0.37252902984619140625e-8L);
+   return static_cast<T>(BOOST_MATH_LARGEST_FLOAT_C(0.37252902984619140625e-8));
 }
 
 template <class T, class Tag>

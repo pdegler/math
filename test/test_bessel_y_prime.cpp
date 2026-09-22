@@ -106,7 +106,12 @@ void expected_results()
    //
    // Linux:
    //
-   if (std::numeric_limits<long double>::digits > 100)
+   #ifdef BOOST_MATH_NO_LONG_DOUBLE_MATH_FUNCTIONS
+      constexpr bool has_long_double_math = false;
+   #else
+      constexpr bool has_long_double_math = true;
+   #endif
+   if (has_long_double_math && std::numeric_limits<long double>::digits > 100)
    {
       // Some input test values use symbolic constants like PI, sensitity
       // of the function means that 0.5ulp error in the input has a 

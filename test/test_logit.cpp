@@ -97,8 +97,10 @@ int main()
     std::feclearexcept(FE_ALL_EXCEPT);
     test<double>();
 
+    #ifndef BOOST_MATH_NO_LONG_DOUBLE_MATH_FUNCTIONS
     std::feclearexcept(FE_ALL_EXCEPT);
     test<long double>();
+    #endif
 
     std::feclearexcept(FE_ALL_EXCEPT);
     test<boost::multiprecision::cpp_bin_float_quad>();

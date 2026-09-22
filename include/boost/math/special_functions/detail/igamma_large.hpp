@@ -799,7 +799,7 @@ BOOST_MATH_GPU_ENABLED T igamma_temme_large(T a, T x, const Policy& pol, const b
       BOOST_MATH_BIG_CONSTANT(T, 113, -0.00404101610816766177473974858518094879),
    };
    workspace[12] = tools::evaluate_polynomial(C12, z);
-   workspace[13] = -0.0059475779383993002845382844736066323L;
+   workspace[13] = BOOST_MATH_BIG_CONSTANT(T, 113, -0.0059475779383993002845382844736066323);
 
    T result = tools::evaluate_polynomial(workspace, T(1/a));
    result *= exp(-y) / sqrt(2 * constants::pi<T>() * a);

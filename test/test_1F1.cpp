@@ -106,7 +106,7 @@ void expected_results()
       "double",                      // test type(s)
       "Bug.*",                     // test data group
       ".*", 300, 50);                 // test function
-#elif(LDBL_MANT_DIG != DBL_MANT_DIG)
+#elif(LDBL_MANT_DIG != DBL_MANT_DIG) && !defined(BOOST_MATH_NO_LONG_DOUBLE_MATH_FUNCTIONS)
    add_expected_result(
       ".*",                          // compiler
       ".*",                          // stdlib

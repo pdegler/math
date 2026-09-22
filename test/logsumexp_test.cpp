@@ -100,14 +100,20 @@ int main (void)
 {
     test<float>();
     test<double>();
+    #ifndef BOOST_MATH_NO_LONG_DOUBLE_MATH_FUNCTIONS
     test<long double>();
+    #endif
 
     test_overflow<float>();
     test_overflow<double>();
+    #ifndef BOOST_MATH_NO_LONG_DOUBLE_MATH_FUNCTIONS
     test_overflow<long double>();
+    #endif
 
     test_random<float>();
     test_random<double>();
+    #ifndef BOOST_MATH_NO_LONG_DOUBLE_MATH_FUNCTIONS
     test_random<long double>();
+    #endif
     return boost::math::test::report_errors();
 }

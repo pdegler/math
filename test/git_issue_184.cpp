@@ -29,7 +29,9 @@ int main()
 {
    test<float>();
    test<double>();
+   #ifndef BOOST_MATH_NO_LONG_DOUBLE_MATH_FUNCTIONS
    test<long double>();
+   #endif
 
    return 0;
 }

@@ -296,35 +296,47 @@ int main(void)
     test_mnn_properties<double>();
 
     #ifndef BOOST_MATH_BUILD_MODULE
+    #ifndef BOOST_MATH_NO_LONG_DOUBLE_MATH_FUNCTIONS
     properties<long double>();
     test_spots<long double>();
     test_mnn_spots<long double>();
     test_mnn_extremal<long double>();
     test_mnn_properties<long double>();
     #endif
+    #endif
 
     #if defined(BOOST_MATH_EXEC_COMPATIBLE) && !defined(BOOST_MATH_BUILD_MODULE)
 
     test_threaded<float>(std::execution::par);
     test_threaded<double>(std::execution::par);
+    #ifndef BOOST_MATH_NO_LONG_DOUBLE_MATH_FUNCTIONS
     test_threaded<long double>(std::execution::par);
+    #endif
     test_threaded<float>(std::execution::par_unseq);
     test_threaded<double>(std::execution::par_unseq);
+    #ifndef BOOST_MATH_NO_LONG_DOUBLE_MATH_FUNCTIONS
     test_threaded<long double>(std::execution::par_unseq);
+    #endif
 
     test_mnn_threaded<float>(std::execution::par);
     test_mnn_threaded<double>(std::execution::par);
+    #ifndef BOOST_MATH_NO_LONG_DOUBLE_MATH_FUNCTIONS
     test_mnn_threaded<long double>(std::execution::par);
+    #endif
     test_mnn_threaded<float>(std::execution::par_unseq);
     test_mnn_threaded<double>(std::execution::par_unseq);
+    #ifndef BOOST_MATH_NO_LONG_DOUBLE_MATH_FUNCTIONS
     test_mnn_threaded<long double>(std::execution::par_unseq);
+    #endif
 
     #endif // BOOST_MATH_EXEC_COMPATIBLE
 
     #ifndef BOOST_MATH_BUILD_MODULE
     test_paper<float>();
     test_paper<double>();
+    #ifndef BOOST_MATH_NO_LONG_DOUBLE_MATH_FUNCTIONS
     test_paper<long double>();
+    #endif
     #endif
 
     return boost::math::test::report_errors();
